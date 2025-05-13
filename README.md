@@ -1,11 +1,11 @@
 # Overview
 
 This Terraform module provisions a basic network infrastructure in
-Microsoft Azure. It uses variables and local values to deploy:\
-- A Resource Group\
-- A Virtual Network (VNet)\
-- Multiple Subnets (with auto-generated CIDR ranges)\
-\
+Microsoft Azure. It uses variables and local values to deploy:
+- A Resource Group
+- A Virtual Network (VNet)
+- Multiple Subnets (with auto-generated CIDR ranges)
+
 It is designed to be concise, reusable, and environment-driven, allowing
 you to easily deploy into different environments like dev, test, or
 prod.
@@ -35,9 +35,9 @@ The following resources are deployed with this module:
 
 # Key Features
 
-\- Environment-based naming (e.g., dev-vnet, prod-vnet)\
-- Dynamic subnet creation with cidrsubnet()\
-- Index-based subnet CIDR generation to reduce manual input\
+- Environment-based naming (e.g., dev-vnet, prod-vnet)
+- Dynamic subnet creation with cidrsubnet()
+- Index-based subnet CIDR generation to reduce manual input
 - Single module that supports multiple subnets per VNet
 
 # Input Variables
@@ -67,14 +67,14 @@ vnet_address_space = \[\"10.0.0.0/16\"\]\
 subnet_names = \[\"frontend\", \"backend\", \"database\"\]\
 }
 
-This will deploy:\
-- Resource Group: dev-network-rg\
-- Virtual Network: dev-vnet with address space 10.0.0.0/16\
-- Subnets:\
-- dev-frontend-subnet → 10.0.1.0/24\
-- dev-backend-subnet → 10.0.2.0/24\
-- dev-database-subnet → 10.0.3.0/24\
-\
+This will deploy:
+- Resource Group: dev-network-rg
+- Virtual Network: dev-vnet with address space 10.0.0.0/16
+- Subnets:
+- dev-frontend-subnet → 10.0.1.0/24
+- dev-backend-subnet → 10.0.2.0/24
+- dev-database-subnet → 10.0.3.0/24
+
 The subnet CIDRs are derived automatically using cidrsubnet().
 
 # Outputs
@@ -90,6 +90,6 @@ The subnet CIDRs are derived automatically using cidrsubnet().
 
 # Cleanup
 
-To destroy the resources:\
-\
+To destroy the resources:
+
 terraform destroy
